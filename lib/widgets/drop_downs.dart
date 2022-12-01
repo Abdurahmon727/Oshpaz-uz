@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:oshpazuz/vars.dart';
 
-class dropDownRecipeFontSize extends StatefulWidget {
-  dropDownRecipeFontSize({Key? key}) : super(key: key);
+class DropDownRecipeFontSize extends StatefulWidget {
+  const DropDownRecipeFontSize({Key? key}) : super(key: key);
 
   @override
-  State<dropDownRecipeFontSize> createState() => _dropDownRecipeFontSizeState();
+  State<DropDownRecipeFontSize> createState() => _DropDownRecipeFontSizeState();
 }
 
-class _dropDownRecipeFontSizeState extends State<dropDownRecipeFontSize> {
+class _DropDownRecipeFontSizeState extends State<DropDownRecipeFontSize> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,6 +34,7 @@ class _dropDownRecipeFontSizeState extends State<dropDownRecipeFontSize> {
                 setState(() {
                   currentRecipeFontSize = value;
                 });
+                settingsOnChangedHive();
               },
               menuMaxHeight: 150,
               items: [
@@ -72,14 +73,14 @@ class _dropDownRecipeFontSizeState extends State<dropDownRecipeFontSize> {
   }
 }
 
-class dropDownFontSize extends StatefulWidget {
-  dropDownFontSize({Key? key}) : super(key: key);
+class DropDownFontSize extends StatefulWidget {
+  const DropDownFontSize({Key? key}) : super(key: key);
 
   @override
-  State<dropDownFontSize> createState() => _dropDownFontSizeState();
+  State<DropDownFontSize> createState() => _DropDownFontSizeState();
 }
 
-class _dropDownFontSizeState extends State<dropDownFontSize> {
+class _DropDownFontSizeState extends State<DropDownFontSize> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -99,12 +100,13 @@ class _dropDownFontSizeState extends State<dropDownFontSize> {
               isExpanded: true,
               focusColor: Colors.white,
               icon: Icon(Icons.expand_more),
-              value: 12,
+              value: currentFontSize,
               menuMaxHeight: 150,
               onChanged: (value) {
                 setState(() {
                   currentFontSize = value;
                 });
+                settingsOnChangedHive();
               },
               items: [
                 DropdownMenuItem(
@@ -146,14 +148,14 @@ class _dropDownFontSizeState extends State<dropDownFontSize> {
   }
 }
 
-class dropDownTheme extends StatefulWidget {
-  dropDownTheme({Key? key}) : super(key: key);
+class DropDownTheme extends StatefulWidget {
+  const DropDownTheme({Key? key}) : super(key: key);
 
   @override
-  State<dropDownTheme> createState() => _dropDownThemeState();
+  State<DropDownTheme> createState() => _DropDownThemeState();
 }
 
-class _dropDownThemeState extends State<dropDownTheme> {
+class _DropDownThemeState extends State<DropDownTheme> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -177,6 +179,7 @@ class _dropDownThemeState extends State<dropDownTheme> {
                 setState(() {
                   currentTheme = value;
                 });
+                settingsOnChangedHive();
               },
               items: [
                 DropdownMenuItem(
@@ -194,14 +197,14 @@ class _dropDownThemeState extends State<dropDownTheme> {
   }
 }
 
-class makeDropDownLanguage extends StatefulWidget {
-  makeDropDownLanguage({Key? key}) : super(key: key);
+class MakeDropDownLanguage extends StatefulWidget {
+  const MakeDropDownLanguage({Key? key}) : super(key: key);
 
   @override
-  State<makeDropDownLanguage> createState() => _makeDropDownLanguageState();
+  State<MakeDropDownLanguage> createState() => _MakeDropDownLanguageState();
 }
 
-class _makeDropDownLanguageState extends State<makeDropDownLanguage> {
+class _MakeDropDownLanguageState extends State<MakeDropDownLanguage> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -225,6 +228,7 @@ class _makeDropDownLanguageState extends State<makeDropDownLanguage> {
                 setState(() {
                   currentLanguage = value;
                 });
+                settingsOnChangedHive();
               },
               items: [
                 DropdownMenuItem(
@@ -242,6 +246,5 @@ class _makeDropDownLanguageState extends State<makeDropDownLanguage> {
         )
       ],
     );
-    ;
   }
 }

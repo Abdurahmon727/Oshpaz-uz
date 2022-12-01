@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:oshpazuz/vars.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,37 +16,40 @@ class _AccountPageState extends State<AccountPage> {
       child: SafeArea(
         child: Column(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Icon(
-                  Icons.notifications,
-                  size: 30,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Icon(
+                    Icons.notifications,
+                    size: 30,
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Row(
-                  children: const [
-                    Icon(
-                      Icons.add,
-                      size: 30,
-                    ),
-                    SizedBox(width: 15),
-                    Icon(
-                      Icons.more_vert,
-                      size: 30,
-                    ),
-                  ],
-                ),
-              )
-            ]),
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Row(
+                    children: const [
+                      Icon(
+                        Icons.add,
+                        size: 30,
+                      ),
+                      SizedBox(width: 15),
+                      Icon(
+                        Icons.more_vert,
+                        size: 30,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
             Center(
               child: Column(
                 children: [
                   ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(15)),
-                    child: Container(
+                    child: SizedBox(
                       child: Image.asset('images/download.png'),
                       height: 130,
                       width: 130,
@@ -55,11 +57,11 @@ class _AccountPageState extends State<AccountPage> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Pak Pon Su',
+                    'Jasurbek Nigmanov',
                     style: GoogleFonts.workSans(fontSize: 18),
                   ),
                   Text(
-                    '@koreanCooker1',
+                    '@inha_studentN123',
                     style:
                         GoogleFonts.workSans(color: Colors.grey, fontSize: 12),
                   )
@@ -128,23 +130,25 @@ class _AccountPageState extends State<AccountPage> {
             ),
             SizedBox(height: 20),
             TabBar(
-                indicatorColor: Colors.black,
-                indicatorSize: TabBarIndicatorSize.tab,
-                tabs: [
-                  Text(
-                    'Your Recipies',
-                    style:
-                        GoogleFonts.workSans(color: Colors.black, fontSize: 15),
-                  ),
-                  Text(
-                    'Reviews',
-                    style:
-                        GoogleFonts.workSans(color: Colors.black, fontSize: 15),
-                  )
-                ]),
+              indicatorColor: Colors.black,
+              indicatorSize: TabBarIndicatorSize.tab,
+              tabs: [
+                Text(
+                  'Your Recipies',
+                  style:
+                      GoogleFonts.workSans(color: Colors.black, fontSize: 15),
+                ),
+                Text(
+                  'Reviews',
+                  style:
+                      GoogleFonts.workSans(color: Colors.black, fontSize: 15),
+                )
+              ],
+            ),
             Expanded(
               child: TabBarView(children: [
                 ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
                     itemBuilder: (context, index) => listYourRecipies),
                 ListView.builder(
                   itemBuilder: (context, index) => listReviews,

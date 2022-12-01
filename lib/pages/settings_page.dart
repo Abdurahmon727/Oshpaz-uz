@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:oshpazuz/dropDowns.dart';
+import 'package:oshpazuz/widgets/drop_downs.dart';
 import 'package:oshpazuz/vars.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
+
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
@@ -24,13 +26,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: GoogleFonts.workSans(
                         fontSize: 20, fontWeight: FontWeight.bold)),
                 SizedBox(height: 20),
-                makeDropDownLanguage(),
+                MakeDropDownLanguage(),
                 SizedBox(height: 20),
-                dropDownTheme(),
+                DropDownTheme(),
                 SizedBox(height: 20),
-                dropDownFontSize(),
+                DropDownFontSize(),
                 SizedBox(height: 20),
-                dropDownRecipeFontSize(),
+                DropDownRecipeFontSize(),
               ],
             ),
             Column(

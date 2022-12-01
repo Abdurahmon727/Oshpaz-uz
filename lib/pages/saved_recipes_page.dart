@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:oshpazuz/vars.dart';
-import 'package:oshpazuz/savedRecipeBuilder.dart';
+import 'package:oshpazuz/widgets/saved_recipe_builder.dart';
 
 class SavedPage extends StatefulWidget {
+  const SavedPage({Key? key}) : super(key: key);
+
   @override
   State<SavedPage> createState() => _SavedPageState();
 }
@@ -31,21 +32,14 @@ class _SavedPageState extends State<SavedPage> {
             //builder
             SizedBox(height: 40),
             Expanded(
-              child: Container(
-                // padding: const EdgeInsets.only(top: 50),
-                child: ListView.separated(
-                  itemCount: 10,
-                  separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(
-                      height: 50,
-                    );
-                  },
-                  itemBuilder: ((context, index) => (index != 0)
-                      ? savedRecipe
-                      : Column(
-                          children: [SizedBox(height: 40), savedRecipe],
-                        )),
-                ),
+              child: ListView.separated(
+                itemCount: 3,
+                separatorBuilder: (BuildContext context, int index) {
+                  return SizedBox(height: 50);
+                },
+                itemBuilder: (context, index) => (index != 0)
+                    ? savedRecipe
+                    : Column(children: [SizedBox(height: 40), savedRecipe]),
               ),
             )
           ],
