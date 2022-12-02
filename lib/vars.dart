@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 
-import 'pages/insideRecipe.dart';
+import 'pages/inside_recipe.dart';
 
 var localStorage = Hive.box('myBox');
 
@@ -180,74 +180,98 @@ class Recipe {
   int callories;
 }
 
-List<Recipe> salads = [
+List<Recipe> foods = [
   Recipe(
-      'Greek Salad',
-      'A traditional Greek salad dressing is really a Greek vinaigrette as it contains olive oil, red wine vinegar, lemon juice, Dijon mustard, minced garlic cloves and  dried oregano.',
-      '1.Make the dressing: In a small bowl, whisk together the olive oil, vinegar, garlic, oregano, mustard, salt, and several grinds of pepper.\n\n2.On a large platter, arrange the cucumber, green pepper, cherry tomatoes, feta cheese, red onions, and olives. Drizzle with the dressing and very gently toss. Sprinkle with a few generous pinches of oregano and top with the mint leaves. Season to taste and serve.',
+    '"Domashnie" chuchvaralari',
+    "Ushbu retsept bulonli chuchvaralar ixlosmandlari uchun. Mazali bulon tayyorlash qiyin emas. Kerakli mahsulotlar:- 2 o'ram \"Kulinar\"ning \"Domashnie\" chuchvaralari;1ta piyoz;- dafna yaprog'i bargi, tuz, ta'bga ko'ra murch.",
+    "1. Qozonga suv soling va olovga qo'ying \n2. Bir bosh po'sti archilgan piyoz, dafna yaprog'i, tuz va ta'bga ko'ra murch qo'shing \n3. Suv qaynab chiqqach, \"Kulinar\"ning \"Domashnie\" chuchvaralarini soling\n4. Chuchvaralar suv yuzida suzib chiqishini kuting. Keyin yana 5-6 daqiqa davomida pishiring\n5. Tayyor!Ushbu bulonni bir osh qoshiq sirka yoki qatiq bilan dasturxonga tortish mumkin.",
+    20,
+    203,
+    true,
+    'images/chuchvara.png',
+    150,
+  ),
+  Recipe(
+    'Tovuq oyoqchalari',
+    'Ha tovuq oyoqchalari kundalik hayotimizda tansiq taomlar turiga allaqachon qo\'shlib bo\'lgan, qa\'ni siz ham bu ovqatni tayyorlay olasizmi?\n Kerakli mahsulotlar: kungaboqar yog\'i - 1 stakan, un - ta\'bga ko\'ra, tuz - 0,5 choy qoshiq, sarimsoqpiyoz donasi - 1 dona, tovuq boldiri - 3-4 dona, pektin - murch- bir chimdim ',
+    'Tovuqni maydaroq bo\'laklarga bo\'lib olib, suvda bir yuvib yuboramiz.Murch, tuz, maydalangan chesnok qo\'shib aralashtiramiz. Tog\'orachaga un soib tovuq bo\'lakchalarini yaxshilab botirib, qizgan yog\'ga solamiz.(yog\' tovuq bo\'lakchalarini ko\'mishi kerak).Xuddi ovqat qaynatgandey yog\'da biqir-biqir qaynaydi(10-12 daqiqa).Tayyor. Yoqimli ishtaha!\n Olov judayam baland bo\'lmasligi kerak, ichi pishmay qoladi',
+    35,
+    359,
+    false,
+    'images/chicken.png',
+    200,
+  ),
+  Recipe(
+    'Pitsa',
+    "Ha o\'sha kun keldi pitsa uy sahroitida tayyorlash\nKerakli mahsulotlar: pomidor - 1 dona, kungaboqar yog'i - 100 gr, bulg'or qalampir - 1 dona, un - ta'bga ko'ra, shakar - 1 osh qoshiq, tuz - 1 choy qoshiq, xamirturush - 1 osh qoshiq, ko'k piyoz - 2 dona, sut - 250 gr, pishloq - 100 gr, qaynatilgan suv - 250 gr, ismaloq - 100 gr, ketchup - ta'bga ko'ra sosiska - 2 dona",
+    "Sutni ilitamiz. Iliq sutga xamirturush va shakar solib 10 daqiqaga olib qo'yamiz. Suv, tuz, yog' qo'shib aralashtiramiz. Unni elab solamiz. 5 daqiqa xamirni mushtlaymiz va o'rab qo'yamiz. Xamir oshgandan so'ng 2 bo'lakka bo'lamiz. Xar birini o'qlov yordamida yoyib chiqamiz. Yoyilgan xamirlarni ustini yopib yana 10 daqiqa dam oldiramiz. Xamir yuziga ketma-ket masalliqlarni terib chiqamiz: Ketchup Qirg'ichdan chiqarilgan pishloq Parrak-parrak to'g'ralgan sosiska Pishirib olingan ismaloq omoncha to'g'ralgan qizil bulg'or qalampiri Oxirida yana pishloq. Bu masalliqlar 1- xamiri uchun. 2-xamir yuziga: -Ketchup -Qirg'ichdan chiqarilgan pishloq -Kubik to'g'ralgan bulg'or qalampiri -Tilim-tilim kesilgan pomidor -Ko'k piyoz -Pishloq  Pitsani 200 darajada qizdirilgan duxovkada 20 daqiqa davomida pishiramiz. Pitsamiz tayyor. Yoqimli ishtaha! Pitsani xoxishga qarab istalgan sabzavot yoki mevalardan tayyorlash mumkin.",
+    75,
+    123,
+    true,
+    'images/pizza.png',
+    180,
+  ),
+  Recipe(
+      'Qovurilgan lag\'mon',
+      "Juda tez tayyorlanadigan va mazalari bo\'gan O\'zbekcha lag\'mon\nKerakli mahsulotlar: mol go'shti - 230 gr, sabzi - 1 dona, piyoz - 1 dona, pomidor - 2 dona, kungaboqar yog'i - 35 ml, bulg'or qalampir - 1 dona, un - 200 gr, tuxum - 2 dona, tuz - 8 gr, zira - 1 gr ",
+      "Qovurilgan lag‘mon tayyorlash uchun, mol yoki qo‘y go‘shti, piyoz, shirin bulg‘or qalampiri, sabzi, tuxum, ko‘kat, o‘simlik yog‘i, pomidor kerak bo‘ladi. Go‘sht mayda to‘tburchak shaklida to‘g‘raladi. Go‘sht o‘simlik yog‘ida 15 daqiqa davomida qovuriladi. Agar go‘sht qattiqroq bo‘lsa idishning qopqog‘ini yopib bir oz yumshatiladi. So‘ng tuz va achchiq murch solinadi. Piyoz, sabzi va bulg‘or qalampiri somoncha shaklida to‘g‘raladi. Go‘shtga to‘g‘ralgan piyoz solib 15 daqiqa davomida qovuriladi. So‘ng to‘g‘ralgan bulg‘or qalampiri va sabzi solinib, yumshoq bo‘lgunga qadar qo‘vuriladi va tabga ko‘ra tuz solinadi. Endi pomidorga navbat. Pomidorni mayda qilib to‘g‘raladi. Ushbu taom uchun shirin pomidorni tanlash maqsadga muvofiqdir. Agar bunday pomidor bo‘lmasa, tomat pastasi qo‘shish mumkin. Tayyor xamirni (ugra) sovuq holda bo‘lsa yarim daqiqaga (isitib olish olish uchun)qaynoq suvda qaynatib olinadi. Ugrani qovurilgan massaga qo‘shib 7-10 daqiqa davomida qovuriladi va tuz va zirovarlari tami rostlanadi. Tuxum chaqib aralashtirilib yog‘da qovurib olinadi. Tayyor omletni mayda somoncha shaklida to‘g‘raladi. Katta laganga tayyor lag‘mon suziladi va ustiga ko‘katlar hamda to‘g‘ralgan omlet sepiladi. \nYoqimli ishtaxa!",
       20,
-      203,
+      12503,
       true,
-      'images/geekSalad.png',
-      150),
+      'images/lag\'mon.png',
+      100),
   Recipe(
-      'Olivie',
-      'This Olivier Salad (Russian Potato Salad) recipe is a traditional dish in the Russian cuisine and served in most restaurants and parties. This salad is commonly known as the Russian salad and Olivye in the Ukrainian community.',
-      '1.In a large pot, add potatoes and carrots. Cover completely with water. Bring to a boil and cook about 20-25 minutes or until a knife pierces through easily. (Don’t overcook. Remove carrots and potatoes from water, set aside to cool).\n\n2.In a small pot, add eggs, cover eggs will water and bring to a boil cook. Cook eggs 8-10 minutes. \n\n3.Cube all of the ingredients. \n\n4.Combine everything, mix. Add mayo to taste. You may need a little more than 1 cup, depending on sizes of your ingredients.\n\n5.Season with salt, pepper and sugar. Add fresh dill, mix. ',
-      35,
-      359,
+      'Kara-Age',
+      'Asli vatani Xitoy bo\'lgan bu taom yapon oshxonasida \"Kara-age\" deb nomlanib, o\'zbek tiliga \"xitoycha qovurma\" deb tarjima qilinadi. Taomni tayyorlanishi ikki bosqichdan iborat. Birinchi bosqichda tovuq go\'shti marinadlanadi va ikkinchi bosqichda uni yog\'da qovurib olinadi. Doimiy usulda qovuriladigan tovuqqa nisbatan Kara-age nihoyatda boy vamazali ta\'mga ega. Tabiat qo\'ynida dam olganda marinadlangan yoki qovurilgan xolda olib chiqib tanovvul qilish uchun ham qulay. Tovuqni kerakli kattalikda to\'g\'rab olamiz. Sarimsoq va zanjabilni qirg\'ichning mayda tishlaridan o\'tkazib olamiz. Ko\'k piyozni mayda to\'g\'rab olamiz. \nKerakli mahsulotlar: un - 0.5 stakan, asal - 3 osh qoshiq, tuz - 1 choy qoshiq, ko\'k piyoz - 5 dona, tovuq filesi - 1 kg, zanjabil - 0.5 bog‘, sirka (musallaslik) - 50 ml',
+      "1. Hamma masalliqlarni tovuq bilan aralashtiramiz.\n2. Tayyor bo'lgan aralashmani ustiga zich qilib tselofan yopib, kamida 1 soatga muzlatgichga marinadlashga qo'yamiz. Lekin qancha ko'p tursa shuncha go'shti va mazasi mayin bo'ladi.\n3. Qozonda yog'ni qizdirib go'sht bo'lakchalarini solamiz.\n4. Bir tomoni qizargach ikkinchi tomonini o'girib pishirib olamiz. Har bir tarafini qovurish uchun 2 - 3 daqiqa ketadi.\n5. Go'sht bo'lakchalari mayin jigarrang bo'lganda yog'dan ko'tarib olinadi.\nTaom tayyor. Yoqimli ishtaxa",
+      40,
+      1232,
       false,
-      'images/olivie.png',
-      200)
+      'images/chicken2.png',
+      100),
 ];
 List<Recipe> snacks = [
   Recipe(
-      'Browni',
-      'A delicious and decadent Brownie Cake made from scratch. This moist and tender cake is made using real chocolate and boasts a crackly, meringue-like crust. This chocolate cake is one of the best things to come out of the Sweetest Menu kitchen this year. Just like a regular brownie, it has a that soft centre that tastes oh-so-chocolately. Mine is also studded with chocolate chips and crunchy walnuts - optional of course, but totally worth it.',
-      '1.I recommend making this cake in a springform pan as it is very delicate and fragile. Removing it from a regular cake pan can be difficult (but not impossible).\n2.Just like a regular brownie, this recipe begins by melting together butter and dark chocolate. I recommend using a good quality dark chocolate, between 45-70% cocoa.\n3.Carefully separate your eggs, ensuring no egg yolk falls into the egg whites.\n4.Start beating your egg whites and your caster sugar using an electric mixer on medium speed. If you don’t have caster sugar, you can use granulated sugar instead.\n5.You want to beat your eggs until thick and voluminous. They should turn white in colour and be thick enough to hold their shape and not drip – you should be able to turn the bowl upside down without anything falling out.\n6.Meanwhile, add your egg yolks to your melted butter and chocolate mixture. Stir to combine. Then add your flour, cocoa powder and salt.\n7.Carefully and slowly fold in your egg whites by hand, making sure you don\'t deflate all the air out of the egg whites.\n7.Finally, fold through chocolate chips and walnuts if using.\n8.Bake cake for approximately 40-50 minutes or until it’s cracked on top and no longer wobbles in the middle. Leave your cake in the cake pan to cool completely – it will be very fragile when you first take it out of the oven.\n9.You can enjoy the cake once it’s cooled or place it in the fridge until you are ready to serve. It’ll go extra fudgy in the fridge!',
-      50,
-      6786,
+      'Qaynatilgan tuxumlar',
+      "Ha aslida tuxumni qaynatish ham bir mahorat, \Kerakli mahsulotlar: tabga ko'ra tuxumlar, bir choy qoshiq tuz, suv ",
+      "Tovuq tuxumlarini pishirishdan oldin suv ostida yuvish kerak. Tuxumlarni yirtqichlardan joylashtiring va sovuq suv bilan to'kib tashlang, shunda u tuxumni yaxshi yopadi. Bu sovuq suv kerak va agar siz qaynayotgan yoki juda issiq suv ishlatsangiz, chig'anoqlar yorilib, nonushta ko'rinishini buzishi mumkin. Agar siz shoshayotgan bo'lsangiz, chovgumdan qaynoq suv va ozgina musluk suvini to'kib tashlang, shunda tuxum pishganda yorilib ketmasligi uchun, bir osh qoshiq tuz qo'shing yoki 9% sirka suvini to'kib tashlang. Tuxum bilan panani olovga qo'ying, 7-10 daqiqa davomida pishiring. Qaynatgandan keyin tuxum ustiga sovuq suv quying.",
+      15,
+      120,
       false,
-      'images/browni snack.png',
-      350),
+      'images/egg.png',
+      120),
   Recipe(
-      'Butter cooky',
-      'This snack is amoung my favourites too, due to less time to making it and its taste',
-      'Actually I am not good recipe makes don\'t make me stressed',
-      25,
-      3451,
-      true,
-      'images/butter cookies.png',
-      110),
+    'Kartoshka Qovurdoq',
+    'Barchamiz birdek sevadigan ovqat, Kerakli mahsulotlar: 1kg kartoshka, 1 osh qoshiq osh tuzi, zira va tabga ko\'ra ziravorlar',
+    "Avvalo kartoshkalarimizni 2mm-5mm oralig' qalinlikda kesib olamiz, bungacha esa qozonimdagi yog' oxirigacha qizib oladi. So'ngra asta sekin qizib turgan yo'g'ga kartoshkalarimizni tashlaymiz, ko'rinishiga sariq rang ura boshlagan zahoti kartoshalarimizni olamiz, bundan avval esa tuz va ziravorlarni qo'shishni unitmang.\nYoqimli ishtaha! ",
+    20,
+    23450,
+    true,
+    'images/chip oil fried.png',
+    70,
+  ),
   Recipe(
-      'Chip oil fried',
-      'This is best Fried i have ever tasted. But it takes little more time than regular frieds',
-      'fullDescription',
-      45,
-      23415,
-      false,
-      'images/chip oil fried.png',
-      130),
-  Recipe(
-      'French fries',
-      'The most popular type of friy due to both less cooking time and taste',
-      'fullDescription for French fries',
-      35,
-      23450,
-      false,
-      'images/french fries.png',
-      70)
+    'Makkajo’xori qovurg’achalari',
+    'Makkajo’xorini qaynatilgan holda iste’mol qilishga kichikligimizdan odatlanganmiz. Ammo bu, o’zgacha tayyorlash usuli o’z ta’mi va osonligi bilan barchani hayratda qoldiradi.',
+    'Makkajo’xorini tik qo’yib, o’tkir pichoq yordamida ikkiga bo’lamiz, so’ng har bir qismni yana 2 qismga bo’lamiz.4 ta, qovurg’aga o’xshaydigan, bir xil xajm va shakldagi qismlar hosil bo’lishi kerak.Idishda zaytun yog’i va ziravorlarni aralshtiramiz.«Qovurg’achalarni» pergament qog’ozi solingan patnisga qo’yamiz va har birini ziravorlik yog’ bilan surtamiz.190-200С gacha qizdirilgan pechga 10 daqiqaga qo’yamiz. Idishda mayonez, ketchup va limon sharbatini aralashtiramiz.Tayyor makkajo’xorilar ustiga limon sharbati quyib, sous bilan dasturxonga tortamiz.\nYoqimli ishtaha!',
+    25,
+    3451,
+    true,
+    'images/corn.png',
+    110,
+  ),
 ];
 List<Recipe> drinks = [
   Recipe(
-      'Cockail',
-      'All of us want to drink coctails. But they are not cheap. By this recipe you can make your own cocktail',
-      'fullDescription for coctail recipe',
-      45,
-      3456,
-      false,
-      'images/cockail.png',
-      65),
+    'Cockail',
+    'All of us want to drink coctails. But they are not cheap. By this recipe you can make your own cocktail',
+    'fullDescription for coctail recipe',
+    45,
+    3456,
+    false,
+    'images/cockail.png',
+    65,
+  ),
   Recipe(
       'Iced milk tea',
       'Vey delicious tea i have ever drunk',
@@ -297,97 +321,259 @@ List<Recipe> food = [
       150)
 ];
 
-Container tabBar(String text) {
-  return Container(
+Widget tabBar(String text) {
+  return Tab(
     height: 20,
-    width: 70,
+    iconMargin: EdgeInsets.zero,
+    //text: text,
     child: Center(
-      child: Text(text, style: TextStyle(fontSize: 20)),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 20),
+      ),
     ),
   );
 }
 
-ListView tabbarView(List<Recipe> a, double maxWidth, double maxHeight) {
-  return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: a.length,
-      itemBuilder: ((context, index) {
-        return SizedBox(
-          width: 250,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 70.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => InsideRecipe(a[index])));
-              },
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Container(
-                    decoration: const BoxDecoration(
-                        color: Color(0xFFC0F4EF),
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    width: maxWidth * 0.5,
-                    height: maxHeight * 0.5,
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+Widget tabbarView(List<Recipe> a, double maxWidth, double maxHeight) {
+  return ListView.separated(
+    physics: BouncingScrollPhysics(),
+    scrollDirection: Axis.horizontal,
+    itemCount: a.length,
+    separatorBuilder: (__, _) => const SizedBox(width: 50),
+    itemBuilder: (context, index) {
+      if (index == 0) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 100.0, left: 10),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => InsideRecipe(a[index]),
+                ),
+              );
+            },
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(8),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFC0F4EF),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  width: maxWidth * 0.5,
+                  height: 380,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 0),
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 0),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Text(a[index].name,
+                                style: GoogleFonts.oregano(fontSize: 30)),
+                            Text(
+                              a[index].briefDescription,
+                              style: GoogleFonts.roboto(fontSize: 14),
+                              maxLines: (maxWidth * 0.4 / 14).ceil(),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(
                               children: [
-                                Text(a[index].name,
-                                    style: GoogleFonts.oregano(fontSize: 30)),
-                                Text(
-                                  a[index].briefDescription,
-                                  style: GoogleFonts.roboto(fontSize: 14),
-                                  maxLines: (maxWidth * 0.4 / 14).ceil(),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
+                                const Icon(Icons.outdoor_grill),
+                                Text('${a[index].cookingTime} min',
+                                    style: GoogleFonts.roboto(fontSize: 14))
                               ],
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Row(children: [
-                                  const Icon(Icons.outdoor_grill),
-                                  Text('${a[index].cookingTime} min',
-                                      style: GoogleFonts.roboto(fontSize: 14))
-                                ]),
-                                const SizedBox(width: 5),
-                                InkWell(
-                                  child: Row(children: [
-                                    const Icon(Icons.thumb_up),
-                                    Text(
-                                      a[index].numOfLikes.toString(),
-                                      style: GoogleFonts.roboto(fontSize: 14),
-                                    )
-                                  ]),
-                                ),
-                              ],
-                            )
-                          ]),
-                    ),
+                            const SizedBox(width: 5),
+                            Row(children: [
+                              const Icon(Icons.thumb_up),
+                              Text(
+                                a[index].numOfLikes.toString(),
+                                style: GoogleFonts.roboto(fontSize: 14),
+                              )
+                            ]),
+                          ],
+                        )
+                      ]),
+                ),
+                Positioned(
+                  top: -115,
+                  right: -50,
+                  child: Image.asset(
+                    a[index].photo,
+                    width: 200,
+                    height: 200,
                   ),
-                  Positioned(
-                    bottom: maxHeight * 0.5,
-                    right: -maxWidth * 0.01,
-                    child: Image.asset(
-                      a[index].photo,
-                      width: 200,
-                      height: 200,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );
-      }));
+      } else if (index == a.length - 1) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 100.0, right: 50),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => InsideRecipe(a[index]),
+                ),
+              );
+            },
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(8),
+                  decoration: const BoxDecoration(
+                      color: Color(0xFFC0F4EF),
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  width: maxWidth * 0.5,
+                  height: 380,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 0),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(a[index].name,
+                                style: GoogleFonts.oregano(fontSize: 30)),
+                            Text(
+                              a[index].briefDescription,
+                              style: GoogleFonts.roboto(fontSize: 14),
+                              maxLines: (maxWidth * 0.4 / 14).ceil(),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(children: [
+                              const Icon(Icons.outdoor_grill),
+                              Text('${a[index].cookingTime} min',
+                                  style: GoogleFonts.roboto(fontSize: 14))
+                            ]),
+                            const SizedBox(width: 5),
+                            InkWell(
+                              child: Row(children: [
+                                const Icon(Icons.thumb_up),
+                                Text(
+                                  a[index].numOfLikes.toString(),
+                                  style: GoogleFonts.roboto(fontSize: 14),
+                                )
+                              ]),
+                            ),
+                          ],
+                        )
+                      ]),
+                ),
+                Positioned(
+                  top: -115,
+                  right: -50,
+                  child: Image.asset(
+                    a[index].photo,
+                    width: 200,
+                    height: 200,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      } else {
+        return Padding(
+          padding: const EdgeInsets.only(top: 100.0),
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => InsideRecipe(a[index]),
+                ),
+              );
+            },
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(8),
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFC0F4EF),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
+                  width: maxWidth * 0.5,
+                  height: 380,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 0),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(a[index].name,
+                                style: GoogleFonts.oregano(fontSize: 30)),
+                            Text(
+                              a[index].briefDescription,
+                              style: GoogleFonts.roboto(fontSize: 14),
+                              maxLines: (maxWidth * 0.4 / 14).ceil(),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(children: [
+                              const Icon(Icons.outdoor_grill),
+                              Text('${a[index].cookingTime} min',
+                                  style: GoogleFonts.roboto(fontSize: 14))
+                            ]),
+                            const SizedBox(width: 5),
+                            InkWell(
+                              child: Row(children: [
+                                const Icon(Icons.thumb_up),
+                                Text(
+                                  a[index].numOfLikes.toString(),
+                                  style: GoogleFonts.roboto(fontSize: 14),
+                                )
+                              ]),
+                            ),
+                          ],
+                        )
+                      ]),
+                ),
+                Positioned(
+                  top: -115,
+                  right: -50,
+                  child: Image.asset(
+                    a[index].photo,
+                    width: 200,
+                    height: 200,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+    },
+  );
 }

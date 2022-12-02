@@ -15,9 +15,10 @@ class _SavedPageState extends State<SavedPage> {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.width * 0.05,
-            left: MediaQuery.of(context).size.width * 0.05,
-            right: MediaQuery.of(context).size.width * 0.05),
+          top: MediaQuery.of(context).size.width * 0.05,
+          left: MediaQuery.of(context).size.width * 0.05,
+          right: MediaQuery.of(context).size.width * 0.05,
+        ),
         child: Column(
           children: [
             Row(

@@ -38,18 +38,17 @@ class _HomePageState extends State<HomePage> {
                     Icon(Icons.search),
                     RotatedBox(
                       quarterTurns: 3,
-                      child: Expanded(
-                        child: TabBar(
-                            indicatorColor: kbottomNavColor,
-                            isScrollable: true,
-                            labelColor: Colors.black,
-                            unselectedLabelColor: Colors.grey,
-                            tabs: [
-                              tabBar('Food'),
-                              tabBar('Drinks'),
-                              tabBar('Snacks'),
-                              tabBar('Salads')
-                            ]),
+                      child: TabBar(
+                        indicatorColor: kbottomNavColor,
+                        isScrollable: true,
+                        labelColor: Colors.black,
+                        unselectedLabelColor: Colors.grey,
+                        tabs: [
+                          tabBar('Food'),
+                          tabBar('Ichimliklar'),
+                          tabBar('Fast food'),
+                          tabBar('Ovqatlar')
+                        ],
                       ),
                     ),
                   ]),
@@ -77,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                         tabbarView(food, maxWidth, maxHeight),
                         tabbarView(drinks, maxWidth, maxHeight),
                         tabbarView(snacks, maxWidth, maxHeight),
-                        tabbarView(salads, maxWidth, maxHeight),
+                        tabbarView(foods, maxWidth, maxHeight),
                       ],
                     ),
                   ),

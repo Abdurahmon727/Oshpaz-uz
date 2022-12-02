@@ -131,7 +131,7 @@ class _AccountPageState extends State<AccountPage> {
             SizedBox(height: 20),
             TabBar(
               indicatorColor: Colors.black,
-              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorSize: TabBarIndicatorSize.label,
               tabs: [
                 Text(
                   'Your Recipies',
